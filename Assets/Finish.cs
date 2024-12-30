@@ -15,6 +15,11 @@ public class Finish : MonoBehaviour
     {
         if(collision.collider.CompareTag("Player") && !Pause.activeSelf)
         {
+            if(!DataManager.Instance.first)
+            {
+                DataManager.Instance.first = true;
+            }
+            DataManager.Instance.currentStage[DataManager.Instance.cureentSn] = true;
             Clear_UI.SetActive(true);
             Time.timeScale = 0f;
         }
